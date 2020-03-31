@@ -1,4 +1,4 @@
-class UsersController < Sinatra::Base
+class UsersController < ApplicationController
 
 	get '/signup' do
 		if Helpers.is_logged_in?(session)
@@ -8,7 +8,9 @@ class UsersController < Sinatra::Base
 	end
 
 	post '/signup' do
+		binding.pry
 		@user = User.create(params)
+		
 		if @user.valid?
 			@user.save
 			session["user_id"] = @user.id
@@ -16,6 +18,24 @@ class UsersController < Sinatra::Base
 		else
 			redirect to '/signup'
 		end
+	end
+
+	get '/login' do 
+		if Helpers.is_logged_in?(session)
+			redirect to '/items'
+		end
+		erb :'users/login'
+	end
+
+	post '/login' do 
+		@user = User.find_by(params["username"])
+
+		if @user && @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect to '/tweets'
+    else
+      erb :'/users/login'
+    end
 	end
 
 end
