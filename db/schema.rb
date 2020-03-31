@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20200330174757) do
 
   create_table "items", force: :cascade do |t|
-    t.string  "type"
+    t.string  "clothing_type"
     t.string  "brand"
     t.string  "size"
     t.integer "user_id"
