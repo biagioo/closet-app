@@ -1,4 +1,4 @@
-class UsersController < ApplicationController
+class UsersController < Sinatra::Base
 
 	get '/signup' do
 		if Helpers.is_logged_in?(session)
@@ -17,6 +17,5 @@ class UsersController < ApplicationController
 			redirect to '/signup'
 		end
 	end
-
 
 end
