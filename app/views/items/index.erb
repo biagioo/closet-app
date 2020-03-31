@@ -3,8 +3,6 @@
 <h4>Here is your current closet!</h4>
 <ul>
 <% @items.each do |item| %>
-  <li><%= item.clothing_type %></li>
-  <li><%= item.brand %></li>
-  <li><%= item.size %></li>
+  <li>Type: <%= item.clothing_type %>. Brand: <%= item.brand %>. Size: <%= item.size %>. </li>
 <% end %>
 </ul>

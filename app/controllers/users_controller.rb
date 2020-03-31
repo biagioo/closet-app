@@ -8,9 +8,7 @@ class UsersController < ApplicationController
 	end
 
 	post '/signup' do
-		binding.pry
 		@user = User.create(params)
-		
 		if @user.valid?
 			@user.save
 			session["user_id"] = @user.id
@@ -28,14 +26,14 @@ class UsersController < ApplicationController
 	end
 
 	post '/login' do 
-		@user = User.find_by(params["username"])
+		@user = User.find_by(:username => params[:username])
 
 		if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect to '/tweets'
+      redirect to '/items'
     else
       erb :'/users/login'
-    end
+		end
 	end
 
 end
