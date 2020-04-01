@@ -3,8 +3,8 @@ class ItemsController < ApplicationController
 	get '/items' do 
 		redirect '/login' if !session[:user_id]
 		@user = User.find(session[:user_id])
-		@items = Item.all
-		
+		@items = Item.all #item = Item.select{|item|:user_id == @user.id }
+		#binding.pry
 		erb :'items/index'
 	end
 
@@ -19,14 +19,12 @@ class ItemsController < ApplicationController
 
 	post '/items' do 
 		@user = Helpers.current_user(session)
-		@item = Item.new(clothing_type: params[:clothing_type], brand: params[:brand], size: params[:size], user_id: @user.id)
+		@item = Item.new(clothing_type: params[:item][:clothing_type], brand: params[:item][:brand], size: params[:item][:size], user_id: @user.id)
 		
-		redirect '/' if !@user 
+		redirect '/' if !Helpers.is_logged_in?(session)
 		if @item.valid? 
 			@item.save
 			redirect '/items'
-		else
-			redirect '/'
 		end
 	end
 
