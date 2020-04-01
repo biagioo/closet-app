@@ -41,16 +41,22 @@ class ItemsController < ApplicationController
 
 
 	get '/items/:id/edit' do 
-		@item = Item.find_by_id(parmas[:id])
+		@item = Item.find_by(id: params[:id])
 		if @item
 			erb :'items/edit'
 		else
 			redirect '/items'
+		end
 	end
 
 	patch '/items/:id' do
-		binding.pry
-	do 
+		item = Item.find_by(id: params[:id])
+		if item.update(params[:item])
+			redirect "/items/#{item.id}"
+		else
+			redirect "/items/#{item.id}/edit"
+		end
+	end
 
 
 	

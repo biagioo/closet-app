@@ -3,14 +3,14 @@
 <form method="post" action="/items/<%=@item.id%>">
 <input type="hidden" name="_method" value="patch">	
 
-	<label>What type of clothing is it?</label>
-  <input type="text" name="clothing_type" id="clothing_type">
+	<label>Clothing Type:</label>
+  <input type="text" name="item[clothing_type]" id="clothing_type" value="<%=@item.clothing_type%>">
   
-  <label>What brand is it?</label>
-  <input type="text" name="brand" id="brand">
+  <label>Brand:</label>
+  <input type="text" name="item[brand]" id="brand" value="<%=@item.brand%>">
   
-  <label>What size is it?</label>
-  <input type="text" name="size" id="size">
+  <label>Size:</label>
+  <input type="text" name="item[size]" id="size" value="<%=@item.size%>">
   
-  <input type="submit" value="submit">
+  <input type="submit" value="Submit">
 </form>

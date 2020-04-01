@@ -6,7 +6,7 @@
   <li><strong>Type:</strong> <%= item.clothing_type %> - 
   <strong>Brand:</strong> <%= item.brand %> - 
   <strong>Size:</strong> <%= item.size %>
-  <p>Would you like to <a href='/item/:id'>view</a> this item?</p></li>
+  <p>Would you like to <a href='/items/<%=item.id%>/edit'>edit</a> this item?</p></li>
 <% end %>
 <p>Click <a href='/items/new'>here<a/> to add another item to your closet.</p>
 
