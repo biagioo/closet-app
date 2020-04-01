@@ -19,7 +19,8 @@ class ItemsController < ApplicationController
 
 	post '/items' do 
 		@user = Helpers.current_user(session)
-		@item = Item.new(clothing_type: params[:clothing_type], brand: params[:brand], size: params[:size])
+		@item = Item.new(clothing_type: params[:clothing_type], brand: params[:brand], size: params[:size], user_id: @user.id)
+		
 
 		redirect '/' if !@user 
 		if @item.valid? 
@@ -28,6 +29,10 @@ class ItemsController < ApplicationController
 		else
 			redirect '/'
 		end
+	end
+
+	get '/items/:id' do 
+		@item = Item.find_by(id: params[:id])
 	end
 
 end
