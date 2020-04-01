@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
 	get '/items' do 
 		redirect '/login' if !session[:user_id]
-		@items = Item.all 
+		@items = Item.all #adjust so that only clothes in users closet can be seen
 		@user = User.find(session[:user_id])
 		
 		erb :'items/index'
@@ -21,7 +21,6 @@ class ItemsController < ApplicationController
 		@user = Helpers.current_user(session)
 		@item = Item.new(clothing_type: params[:clothing_type], brand: params[:brand], size: params[:size], user_id: @user.id)
 		
-
 		redirect '/' if !@user 
 		if @item.valid? 
 			@item.save
@@ -33,6 +32,11 @@ class ItemsController < ApplicationController
 
 	get '/items/:id' do 
 		@item = Item.find_by(id: params[:id])
+		if @item
+			erb :'items/show'
+		else
+			redirect '/items'
+		end
 	end
 
 end
