@@ -3,7 +3,8 @@ class ItemsController < ApplicationController
 	get '/items' do 
 		redirect '/login' if !session[:user_id]
 		@user = User.find(session[:user_id])
-		@items = Item.all #item = Item.select{|item|:user_id == @user.id }
+		items = Item.all
+		@items = Item.select{|item|item.user_id == @user.id }
 		#binding.pry
 		erb :'items/index'
 	end
