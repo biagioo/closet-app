@@ -2,8 +2,8 @@ class ItemsController < ApplicationController
 
 	get '/items' do 
 		redirect '/login' if !session[:user_id]
-		@items = Item.all #adjust so that only clothes in users closet can be seen
 		@user = User.find(session[:user_id])
+		@items = Item.all
 		
 		erb :'items/index'
 	end
