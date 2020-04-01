@@ -1,9 +1,9 @@
 class ItemsController < ApplicationController 
 
+	
 	get '/items' do 
 		redirect '/login' if !session[:user_id]
 		@user = User.find(session[:user_id])
-		items = Item.all
 		@items = Item.select{|item|item.user_id == @user.id }
 		#binding.pry
 		erb :'items/index'
@@ -26,6 +26,10 @@ class ItemsController < ApplicationController
 		if @item.valid? 
 			@item.save
 			redirect '/items'
+		else
+			@errors = @item.errors.full_messages
+			@error_size = @errors.size
+			redirect '/items/new'
 		end
 	end
 
