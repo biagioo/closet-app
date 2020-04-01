@@ -22,9 +22,8 @@
 </form>
 
 
- <%if @errors %>
-  <%@errors.each do |message| %>
-    <%=message%>
-    <%end%>
- <%end%>
-
+ <% if !@errors.empty? %>
+  <% @errors.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+ <% end %>

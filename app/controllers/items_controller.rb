@@ -12,6 +12,7 @@ class ItemsController < ApplicationController
 	get '/items/new' do 
 		if Helpers.is_logged_in?(session)
 			@user = Helpers.current_user(session)
+			@errors = []
 			erb :'items/new'
 		else
 			redirect '/'
@@ -28,8 +29,7 @@ class ItemsController < ApplicationController
 			redirect '/items'
 		else
 			@errors = @item.errors.full_messages
-			@error_size = @errors.size
-			redirect '/items/new'
+			erb :'items/new'
 		end
 	end
 
