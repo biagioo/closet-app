@@ -39,4 +39,19 @@ class ItemsController < ApplicationController
 		end
 	end
 
+
+	get '/items/:id/edit' do 
+		@item = Item.find_by_id(parmas[:id])
+		if @item
+			erb :'items/edit'
+		else
+			redirect '/items'
+	end
+
+	patch '/items/:id' do
+		binding.pry
+	do 
+
+
+	
 end

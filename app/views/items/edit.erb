@@ -1,0 +1,16 @@
+<h3>Edit Your Closet Item</h3>
+
+<form method="post" action="/items/<%=@item.id%>">
+<input type="hidden" name="_method" value="patch">	
+
+	<label>What type of clothing is it?</label>
+  <input type="text" name="clothing_type" id="clothing_type">
+  
+  <label>What brand is it?</label>
+  <input type="text" name="brand" id="brand">
+  
+  <label>What size is it?</label>
+  <input type="text" name="size" id="size">
+  
+  <input type="submit" value="submit">
+</form>
