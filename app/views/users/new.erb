@@ -6,3 +6,9 @@
   <p>Password: <input type="password" name="password"></p>
   <button type="submit" id="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<% if !@errors.empty? %>
+  <% @errors.each do |message| %>
+    <font color="black"> <strong> <%= message %>.</strong> </font>
+  <% end %>
+ <% end %>

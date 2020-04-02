@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
 	get '/signup' do
+		@user = []
 		if Helpers.is_logged_in?(session)
 			redirect to '/items'
 		end
@@ -14,7 +15,10 @@ class UsersController < ApplicationController
 			session["user_id"] = @user.id
 			redirect to '/items'
 		else
-			redirect to '/signup'
+			#binding.pry
+			@errors = @user.errors.full_messages
+			erb :'/users/new'
+			#redirect to '/signup'
 		end
 	end
 
