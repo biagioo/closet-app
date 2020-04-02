@@ -1,7 +1,7 @@
 <h3>Welcome, <%= @user.username %>!</h3>
 <h4>Here is your current closet!</h4>
 
-<ul class="list-group list-group-horizontal">
+<ul>
   <% @items.each do |item| %>
     <li class="horizontal"><strong><font color="black"> Type:</font> </strong> <%= item.clothing_type %> 
     <strong><font color="black">Brand:</font></strong> <%= item.brand %>
