@@ -1,6 +1,4 @@
 <h2>Hey <%= @user.username%>!</h2>
-<br>
-
 
 <h4> Add a new item to your closet!</h4>
 <p>Please fill out ALL fields.</p>
@@ -24,6 +22,6 @@
 
  <% if !@errors.empty? %>
   <% @errors.each do |message| %>
-    <font color="red"><h6><%= message %></h6><font>
+    <font color="black"> <strong> <%= message %>.</strong> <font>
   <% end %>
  <% end %>
