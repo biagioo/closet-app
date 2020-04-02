@@ -1,24 +1,17 @@
 <h3>Welcome, <%= @user.username %>!</h3>
 <h4>Here is your current closet!</h4>
 <ul>
+<% @items.each do |item| %>
+  <li><strong><font color="black"> Type:</font> </strong> <%= item.clothing_type %> 
+  <strong><font color="black">Brand:</font></strong> <%= item.brand %>
+  <strong><font color="black">Size:</font></strong> <%= item.size %>
+  <p>Would you like to <a href='/items/<%=item.id%>/edit'>edit</a> this item?</p>
+  <p>Would you like to <a href='/items/<%=item.id%>'>view</a> this item?</p></li>
 
-<div class="container">
-<div class="row">
-  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-    <div class="thumbnail">
-      <div class="caption">
-      <% @items.each do |item| %>
-        <li><strong><font color="black"> Type:</font> </strong> <%= item.clothing_type %> 
-        <strong><font color="black">Brand:</font></strong> <%= item.brand %>
-        <strong><font color="black">Size:</font></strong> <%= item.size %>
-        <p>Would you like to <a href='/items/<%=item.id%>/edit'>edit</a> this item?</p>
-        <p>Would you like to <a href='/items/<%=item.id%>'>view</a> this item?</p></li>
-      <% end %>
-      <h5>Click <a href='/items/new'>here<a/> to add another item to your closet.</h5>
-      </div>
-      </div>
-  </div>
-</div>
+<% end %>
+<h5>Click <a href='/items/new'>here<a/> to add another item to your closet.</h5>
 
 </ul>
+
+
 
