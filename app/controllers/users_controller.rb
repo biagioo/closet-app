@@ -31,10 +31,11 @@ class UsersController < ApplicationController
 		@user = User.find_by(:username => params[:username])
 
 		if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
-      redirect to '/items'
-    else
-      erb :'/users/login'
+      		session[:user_id] = @user.id
+      		redirect to '/items'
+    	else
+			@error = "Invalid Username or Password. Please try again."
+			erb :'/users/login'
 		end
 	end
 

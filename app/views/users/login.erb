@@ -8,3 +8,7 @@
 </form>
 <br>
 <p>If you don't have an account, Sign Up <a href=/signup>Here</a>.</p>
+
+<%if !Helpers.is_logged_in?(session) %>
+  <font color="red"><%=@error%></font>
+<%end%>

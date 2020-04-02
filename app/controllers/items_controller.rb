@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
 
 
 	get '/items/:id/edit' do 
-		@item = Item.find_by(id: params[:id])
+		Helpers.find_item
 		if @item
 			erb :'items/edit'
 		else
