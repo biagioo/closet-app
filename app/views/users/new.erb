@@ -7,6 +7,8 @@
   <button type="submit" id="submit" class="btn btn-primary">Submit</button>
 </form>
 
+<p>If you already have an account, Log In <a href=/login>Here</a>.</p>
+
 <% if !@errors.empty? %>
   <% @errors.each do |message| %>
     <font color="black"> <strong> <%= message %>.</strong> </font>
