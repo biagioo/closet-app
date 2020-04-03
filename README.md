@@ -1,11 +1,8 @@
 
 # closet-app
 
-
-Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
-
 Welcome to the Online Closet. This application allows you to keep track of the items in your closet by organizing them in an only closet.
-In this applicaiton you can create your own user wiht your own clsoet, view, add, delete and edit all items in your closet!
+In this applicaiton you can sign up, view, add, delete and edit all items in your closet! Then log out when you're all done!
 I hope you enjoy!
 
 ## Installation
