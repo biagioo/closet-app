@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
 	get '/signup' do
 		@errors = []
-		if Helpers.is_logged_in?(session)
+		if logged_in?
 			redirect to '/items'
 		end
 		erb :'/users/new'
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 	end
 
 	get '/login' do 
-		if Helpers.is_logged_in?(session)
+		if logged_in?
 			redirect to '/items'
 		end
 		erb :'users/login'
