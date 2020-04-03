@@ -33,7 +33,7 @@ class ItemsController < ApplicationController
 	end
 
 	get '/items/:id' do 
-		@item = Item.find_by(id: params[:id])
+		find_item
 		if @item
 			erb :'items/show'
 		else
@@ -43,7 +43,7 @@ class ItemsController < ApplicationController
 
 
 	get '/items/:id/edit' do 
-		Helpers.find_item
+		find_item
 		if @item
 			erb :'items/edit'
 		else
@@ -52,21 +52,21 @@ class ItemsController < ApplicationController
 	end
 
 	patch '/items/:id' do
-		item = Item.find_by(id: params[:id])
-		if item.update(params[:item])
-			redirect "/items/#{item.id}"
+		find_item
+		if @item.update(params[:item])
+			redirect "/items/#{@item.id}"
 		else
-			redirect "/items/#{item.id}/edit"
+			redirect "/items/#{@item.id}/edit"
 		end
 	end
 
 	delete '/items/:id/delete' do 
-		item = Item.find_by(id: params[:id])
-			if item.destroy
-				redirect '/items'
-			else
-				redirect "/items/#{item.id}"
-			end
+		find_item
+		if @item.destroy
+			redirect '/items'
+		else
+			redirect "/items/#{@item.id}"
+		end
 	end
 	
 end

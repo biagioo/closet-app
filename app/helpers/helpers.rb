@@ -8,8 +8,8 @@ class Helpers
       !!session[:user_id]
     end
   
-    def self.find_item
-      @item = Item.find_by(id: params[:id])
-    end
+    # def self.find_item
+    #   @item = Item.find_by(id: params[:id])
+    # end
 
 end
