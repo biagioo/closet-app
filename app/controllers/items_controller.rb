@@ -44,6 +44,7 @@ class ItemsController < ApplicationController
 
 	get '/items/:id/edit' do 
 		find_item
+		@errors = []
 		if @item
 			erb :'items/edit'
 		else
@@ -56,7 +57,8 @@ class ItemsController < ApplicationController
 		if @item.update(params[:item])
 			redirect "/items/#{@item.id}"
 		else
-			redirect "/items/#{@item.id}/edit"
+			@errors = @item.errors.full_messages
+			erb :'items/edit'
 		end
 	end
 
