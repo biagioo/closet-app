@@ -12,7 +12,7 @@ Once downloaded or cloned, enter bundle install into your terminal. To run the p
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/'sheepish-writer-0380'/fd_schedule. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/'sheepish-writer-0380'/closet-app. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
